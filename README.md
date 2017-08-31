@@ -35,15 +35,15 @@ profit margin
 
 Clone this github repository to your computer.
 
-The only requirement is that you have Python 3 installed on you computer. Make sure you have python set to an environment variable.
+The only requirement is that you have Python 3 installed on you computer.
 
 ## Preparation
 Set options in `opt` array in `run.py` file of this repository.
 
 New line characters
-- </br> for html
-- \n for Linux
-- \r for Windows
+- `</br>` for html
+- `\n` for Linux
+- `\r` for Windows
 ```python
 opt['nl'] = '<br/>'
 ```
@@ -77,9 +77,9 @@ opt['trailing_nls'] = 2
 ```
 
 ## Usage
-Open command line.
-Go the folder that includes the `run.py` python script that you downloaded.
-Run this
+Open the command line.
+Go the folder that includes the `run.py` python script that you downloaded and run it.
+Make sure you have python set to an environment variable - Otherwise you have to use the full path of your python installation.
 ```sh
 python run.py
 ```
