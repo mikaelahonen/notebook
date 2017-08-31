@@ -9,7 +9,10 @@ def main(opt):
 	quote = opt['quote']
 	#Optionally wrap file title and field name in html tags
 	title_tag = opt['title_tag']
+	title_nl = opt['title_nl']
 	field_tag = opt['field_tag']
+	field_nl = opt['field_nl']
+	trailing_nls = opt['trailing_nls']
 
 	dir_read = input('Directory to read: ')
 	#Current folder
@@ -39,14 +42,21 @@ def main(opt):
 				
 				#Write filename
 				title = wrapHtml(file_name, title_tag)
-				file_write.write(title + nl)
+				if(title_nl):
+					file_write.write(title + nl)
+				else:
+					file_write.write(title)
+					
 				#Loop all heads in header row
 				for head in head_row:
 					head = wrapHtml(head, field_tag)
-					file_write.write(head + nl)
+					if(field_nl):
+						file_write.write(head + nl)
+					else:
+						file_write.write(head)
 					
 				#Add space after all fields have been written
-				file_write.write(nl + nl)
+				file_write.write(nl * trailing_nls)
 				
 	file_write.close()
 	print('Ready. Headers file: ' + write_path)
