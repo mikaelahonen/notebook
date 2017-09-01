@@ -69,13 +69,13 @@ New line after title? If you use html tags you probably want to leave this to Fa
 ```python
 opt['title_nl'] = False
 ```
-Use this, if you want to weap field names to `<p></p>` tags for example.
+Use this, if you want to weap field names to `<p></p>` tags for example. If you don't want this, leave it as empty string.
 ```python
-opt['field_tag'] = ''
+opt['field_tag'] = 'p'
 ```
 New line after a field row? If your field rows are wrapped around html tags, you probably want to leave this to False.
 ```python
-opt['title_nl'] = False
+opt['field_nl'] = False
 ```
 Number of new lines after fields of a single file have been listed 
 ```python
