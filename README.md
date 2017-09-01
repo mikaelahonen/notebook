@@ -35,13 +35,13 @@ profit margin
 
 Clone this github repository to your computer.
 
-The only requirement is that you have Python 3 installed on you computer.
+The only requirement is that you have Python 3 installed on you computer. The code has been tested only with Python 3.6.
 
 ## Preparation
 Set options in `opt` array in `run.py` file of this repository.
 
 New line characters
-- `</br>` for html
+- `<br/>` for html
 - `\n` for Linux
 - `\r` for Windows
 ```python
