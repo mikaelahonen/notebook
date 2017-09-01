@@ -1,6 +1,10 @@
 # Parse csv headers from multiple files
 
 Python 3 code to parse headers from multiple csv files to generate field list of each file.
+<br/>
+Link to related blog post:
+[Blog post: Get csv headers (In English)](https://mikaelahonen.com/en/blog/csv-headers-list-using-python/)
+[Blog post: Get csv headers (In Finnish)](https://mikaelahonen.com/fi/blog/csv-tiedostojen-kentat-listaksi-pythonilla/)
 
 ## Input files example
 `file-1.csv`
