@@ -6,6 +6,7 @@ This repository is mainly for my personal learning but I'm glad if it's helpful 
 Example syntax of `princomp` function that performs a principal component analysis. 
 * Prinicipal component analysis is used for dimensional reduction. 
 * Does not assume a dependent variable ([source](ftp://statgen.ncsu.edu/pub/thorne/molevoclass/AtchleyOct19.pdf))
+* Original variables are can not directly associated with specific principal components.
 * [Difference to factor analysis](https://stats.stackexchange.com/questions/1576/what-are-the-differences-between-factor-analysis-and-principal-component-analysi).
 
 ### Factor Analysis ##
