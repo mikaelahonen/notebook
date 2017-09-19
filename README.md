@@ -15,3 +15,6 @@ Great [cheatsheet](https://www.rstudio.com/resources/cheatsheets/) for ggplot2 i
 * Use `ggplot()` together with additional definitions for more detailed plots
 * Define dataset and variable mappings in `ggplot()` base function
 * Use geom_ functions with `ggplot()` to actually draw plots. For example `ggplot() + geom_point()`
+
+## Prinicpal component analysis ##
+Example syntax of princomp function that performs a principal component analysis. 
