@@ -3,6 +3,9 @@
 ## Basic Graphics ##
 Some simple R plots to get started quickly.
 
+#corrplot#
+Create a visual correlation matrix with corrplot library.
+
 ## ggplot2 library ##
 Some simple R plots made with `ggplot2` graphics library to get started quickly.
 <br/>
