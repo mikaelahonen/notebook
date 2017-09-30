@@ -1,5 +1,5 @@
 #rgl library plot3d function
-#appears in new window
+#opens in new window
 library(rgl)
 attach(iris)
 plot3d(Sepal.Length, Sepal.Width, Petal.Length, type="s", col=as.numeric(Species), size=1)
