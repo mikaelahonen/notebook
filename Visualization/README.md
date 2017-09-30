@@ -1,4 +1,10 @@
 # Visualization #
+
+## 3D Plots ##
+Examples of 3d plots.
+* `3dplot()` function from `rgl` library
+* `plot_ly` function from `plotly` library
+
 ## Basic Graphics ##
 Some simple R plots to get started quickly.
 
