@@ -16,6 +16,16 @@ To do: Example of linear discriminant analysis.
 * Tries to maximize separation between known categories
 * [Youtube tutorial](https://www.youtube.com/watch?v=azXCzI57Yfc)
 
+## Normal distribution ##
+Calculate many different aspects of normal distribution.
+* Density
+* Probability
+* Function height
+* Quantile
+* Create normally distributed random values
+* Create histogram from the random values
+
+
 ## Prinicpal Component Analysis ##
 Example syntax of `princomp` function that performs a principal component analysis. 
 * Prinicipal component analysis is used for dimensional reduction. 
