@@ -1,6 +1,27 @@
 # Normally distributed statistical tests #
 Use these test when it's excpected that data is normally distributed.
 
+## ANOVA ##
+Stands for <i>Analysis of variance</i>.
+It is meant to compare means of more than two groups.
+<br/>
+<br/>
+Notes:
+* Variance should be equal among the groups
+
+## ANOVA - One way ##
+A variation of ANOVA.
+Use this version,
+when the assumption about equality of variances among the groups
+is not fulfilled. 
+<br/>
+<br/>
+Notes:
+* Extension for two sample t-test
+
+## F-test ##
+Test if true ratio of variances is equal to 1.
+
 ## T-test - One sample ##
 Compare mean of a distribution to the expected mean.
 
