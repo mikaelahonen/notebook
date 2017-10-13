@@ -4,20 +4,20 @@ Use these test when it's excpected that data is normally distributed.
 ## ANOVA ##
 Stands for <i>Analysis of variance</i>.
 It is meant to compare means of more than two groups.
+As it's investigating the mean - not the variance - the name is misleading.
+Use either `aov()` or fit linear model first with `lm()`.
+<br/>
+<br/>
+When ANOVA is used for one or two categories, it's equal to t-test.
+<br/>
+<br/>
+ANOVA compares variation within and between groups.
+If the difference is significant, then the difference of means will also be.
 <br/>
 <br/>
 Notes:
 * Variance should be equal among the groups
-
-## ANOVA - One way ##
-A variation of ANOVA.
-Use this version,
-when the assumption about equality of variances among the groups
-is not fulfilled. 
-<br/>
-<br/>
-Notes:
-* Extension for two sample t-test
+* [Read more](http://cba.ualr.edu/smartstat/topics/anova/example.pdf)
 
 ## F-test ##
 Test if true ratio of variances is equal to 1.
