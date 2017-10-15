@@ -9,9 +9,14 @@ text patterns. For example:
 * Match the string if it is at the end of line.
 * And any combinations of these...
 
-A common use case is to replace text from Notepad++.
+Use cases
+* Replace text in a text editor such as Notepad++.
+* Remove text in a text editor by replacing with empty string.
+* Find one or all occurences in text editor.
+* Find one or all occurences in browser by using a plugin.
+* Find, replace or remove in program code.
 
-## Find all `<p>` and `</p>` tags
+## Match all `<p>` and `</p>` tags
 ### RegEx
 `</?p>`
 ### Expalantion
@@ -19,4 +24,9 @@ A common use case is to replace text from Notepad++.
 * `/?` Match character "/" if it exists.
 * `p>` Match string "p>".
 
-
+## Match string at the end of line
+### RegEx
+`some text$`
+### Expalantion
+* `some text` Match string "some text".
+* `$` Match end of line.
