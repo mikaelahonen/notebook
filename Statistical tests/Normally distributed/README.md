@@ -15,9 +15,20 @@ ANOVA compares variation within and between groups.
 If the difference is significant, then the difference of means will also be.
 <br/>
 <br/>
+Assumptions
+* Population of each group is normally distributed
+* Variance in each group's population is the same
+* Group samples are random
+* Group samples independent of each other
+<br/>
+<br/>
 Notes:
 * Variance should be equal among the groups
 * [Read more](http://cba.ualr.edu/smartstat/topics/anova/example.pdf)
+
+## Correlation test ##
+Calculate confidence interval for correlation with given probability.
+Function `cor.test()` is used.
 
 ## F-test ##
 Test if true ratio of variances is equal to 1.
