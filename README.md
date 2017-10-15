@@ -1,5 +1,13 @@
 # Regular Expressions
-Regular expressions that I use relatively often.
+Regular expressions that I need relatively often.
+
+Regular expressions are used to match 
+text patterns. For example:
+* Match only selected characters.
+* Match a character if it exists.
+* Specify only UPPERCASE characters.
+* Match the string if it is at the end of line.
+* And any combinations of these...
 
 A common use case is to replace text from Notepad++.
 
