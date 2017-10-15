@@ -7,8 +7,8 @@ A common use case is to replace text from Notepad++.
 ### RegEx
 `</?p>`
 ### Expalantion
-`<` Match string "<".
-`/?` Match "/" if it exists.
-`p>` Match string "p>".
+* `<` Match string "<".
+* `/?` Match character "/" if it exists.
+* `p>` Match string "p>".
 
 
