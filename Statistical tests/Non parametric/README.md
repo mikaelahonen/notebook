@@ -1,43 +1,48 @@
 # Non parametric tests #
-<p>
+
 Non parametric statistical tests are used, 
 when you can't expect data to be normally distributed.
-</p>
 
 ## Kruskal-Wallis Rank sum test ##
-<p>
+
 Non paramteric equivalent for ANOVA.
-</p>
 
 ## Sign test ##
-<p>
+
 Investigate hypothesis that sample's
 quantile is the expected value.
 Mostly the quantile is 0.5 which is also known as median.
-</p>
-<p>
+
 Compare sample values to the expected quantile value.
 If the sample value is bigger than the epected it gets plus sign,
 otherwise minus.
 If the comparison is tie, the value is dropped and
 the sample size decreased by one.
-</p>
-<p>
+
 Use `BSDA` library and `SIGN.test()` function.
-</p>
 
+Doesn't expect symmetric distribution.
 
-## Wilcoxon test - One sample ##
-<p>
+## Wilcox test - One sample ##
 Compare an expected mean to mean of observed data.
 Non parametric equivalent for one sample t-test.
-</p>
 
-## Wilcoxon test - Two sample ##
-<p>
-Wilcoxon rank sum test.
-Compare means of expected and observed data.
-Non parametric equivalent for one sample t-test.
+Wilcox rank sum test 
+* Expects symmetric distribution
+* Applies only for median
+* `wilcox.test()`
+
+Procedure
+1. Decrease the expected median from each value in sample.
+2. Take the absolute value from those.
+3. Sort absolute values from big to small.
+4. Give each value rank starting from 1. On tie, give average rank.
+5. Sum ranks for positive and negative values.
+6. See results from a lookup table or use R.
+
+
+
+## Wilcox test - Two sample ##
 Also known as Mann-Whitney test.
-</p>
+
 

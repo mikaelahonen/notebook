@@ -1,9 +1,15 @@
 #pastecs library for stat.desc function
 library(pastecs)
 
-#Create two distributions
-d.observed <- c(0,0,1,2,2,2,5,7,10,10,10,10,10,20,20)
-d.expected <- 3
+#Create the value vector with 100 normally distributed values
+set.seed(1)
+d.observed <- rnorm(100)
+
+#Set expected value
+d.expected <- -0.1
+
+#Show histogram from observed values
+hist(d.observed)
 
 #Show summary statistics
 stat.desc(d.observed)

@@ -1,17 +1,23 @@
 # Visualization #
 
-## 3D Plots ##
+## 3D Plots 
 Examples of 3d plots.
 * `3dplot()` function from `rgl` library
 * `plot_ly` function from `plotly` library
 
-## Basic Graphics ##
+## Abline
+Create simple lines on top of plots:
+* A line with intercept and slope
+* Horizontal line
+* Vertical line
+
+## Basic Graphics 
 Some simple R plots to get started quickly.
 
-## corrplot library ##
+## corrplot library 
 Create a visual correlation matrix with corrplot library.
 
-## ggplot2 library ##
+## ggplot2 library 
 Some simple R plots made with `ggplot2` graphics library to get started quickly.
 * Great [cheatsheet](https://www.rstudio.com/resources/cheatsheets/) for ggplot2 in RStudio web page.
 * Use `qplot()` for less detailed plots
