@@ -14,5 +14,7 @@ df <- data.frame(value,x,y,z)
 df
 lm <- lm(value ~ x+y+z, df)
 
-#Do the stepwise variable selection
-s <- step(lm)
+#Do the forward stepwise variable selection
+step(lm, direction="forward")
+#Do the backward stepwise variable selection
+step(lm, direction="backward")
