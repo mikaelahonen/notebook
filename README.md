@@ -16,7 +16,7 @@ Use cases
 * Find one or all occurences in browser by using a plugin.
 * Find, replace or remove in program code.
 
-## Match all `<p>` and `</p>` tags
+## All `<p>` and `</p>` tags
 ### RegEx
 `</?p>`
 ### Expalantion
@@ -24,9 +24,17 @@ Use cases
 * `/?` Match character "/" if it exists.
 * `p>` Match string "p>".
 
-## Match string at the end of line
+## String at the end of line
 ### RegEx
 `some text$`
 ### Expalantion
 * `some text` Match string "some text".
 * `$` Match end of line.
+
+## Email at and domain
+### RegEx
+`@.+$`
+### Explanation
+* `@` Match string "@".
+* `.+` Dot matches any character. Plus requires any number of characters, but at least one.
+* `$` End of line. Might be also space or a separator character depenging on your list's structure.
