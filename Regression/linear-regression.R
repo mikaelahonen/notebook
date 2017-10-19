@@ -6,9 +6,12 @@ set.seed(20)
 y <- 1:20 + round(rnorm(20), 1)
 
 #Fit linear model
-df <- data.frame(x,y)
-df
-lm <- lm(y~x, df)
+xy <- data.frame(x,y)
+xy
+lm <- lm(y~x, xy)
+
+#Bind fitted values
+compare <- cbind(xy, lm$fitted.values)
 
 #Get intercept and coefficient
 i <- lm$coefficients[[1]]
