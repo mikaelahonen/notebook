@@ -46,7 +46,7 @@ Use cases
 * `.+` Dot matches any character. Plus requires any number of characters, but at least one.
 * `$` End of line. Might be also space or a separator character depenging on your list's structure.
 
-## Replace first character with Capital
+## Replace the first character with Capital
 ### RegeEX
 Find `^(.)`
 Replace `\u\1`
