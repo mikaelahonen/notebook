@@ -14,13 +14,20 @@ Create simple lines on top of plots:
 ## Basic Graphics 
 Some simple R plots to get started quickly.
 
-## corrplot library 
+## `corrplot` library 
 Create a visual correlation matrix with corrplot library.
 
-## ggplot2 library 
+## `ggplot2` library 
 Some simple R plots made with `ggplot2` graphics library to get started quickly.
 * Great [cheatsheet](https://www.rstudio.com/resources/cheatsheets/) for ggplot2 in RStudio web page.
 * Use `qplot()` for less detailed plots
 * Use `ggplot()` together with additional definitions for more detailed plots
 * Define dataset and variable mappings in `ggplot()` base function
 * Use geom_ functions with `ggplot()` to actually draw plots. For example `ggplot() + geom_point()`
+
+## Graphical Parameters
+Use `par()` to set or query graphical parameters.
+
+## Lines
+Use `lines()` function to draw lines to a plot.
+`lines(x,y)` will draw line to each x and y pair.
