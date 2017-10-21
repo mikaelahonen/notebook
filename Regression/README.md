@@ -12,6 +12,10 @@ Fit a linear function by minimizing the sum of squared residuals.
 
 Use function `lm()`.
 
+## Local regression
+Perform a local fit for data.
+Use `loess()` function for this. 
+
 ## Stepwise variable selection
 AIC is used for selection.
 AIC = [Akaike Information Criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion).

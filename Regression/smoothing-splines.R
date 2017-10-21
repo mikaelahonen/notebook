@@ -1,11 +1,14 @@
 #Create data
-x <- 1:9
-y <- rnorm(9)
+x <- 1:10
+y <- rnorm(10)
 
 #Create plot
 plot(x, y)
 
-#Create spline variable
-spline <- spline(x, y) 
-lines(spline)
-lines(spline(x, y, n = 201), col = 2)
+#Create data for spline. Default n = 3*length(x) .
+s.default <- spline(x, y)
+lines(s.default)
+
+#Create more accurate data for spline
+s.200 <- spline(x, y, n = 200)
+lines(s.200, col = "red")
