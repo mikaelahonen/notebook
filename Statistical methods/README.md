@@ -1,7 +1,4 @@
-# Statistics #
-
-## Cross correlation ##
-Investigate time series correlations with different lags.
+# Statistics
 
 ## Factor Analysis ##
 Simple use case for `factanal` function.

@@ -17,8 +17,9 @@ For example:
 * `seq()`
 * `runif()`
 
-##Extract number from named number
-Use `[[]]` notation to remove label from named numbers.
+##Named num
+Methods for named number vectors.
+Use `[[]]` notation to remove label from named numbers for example.
 
 ## R Commands
 Common commands for R and RStudio.

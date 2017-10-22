@@ -7,3 +7,6 @@ values[[1]]
 
 #Option 2: By name
 values[["Value 1"]]
+
+#Values without the names
+unname(values)

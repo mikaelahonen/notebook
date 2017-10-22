@@ -1,7 +1,7 @@
 # Machine Learning
-Algorithms and methods that can handle variant and complex data
-whereas clustering is classification is meant to idenfify categorical data
-and regression continuous data.
+Algorithms and methods that can handle variant and complex data.
+I define machine algorithms to be able to solve
+both categorical and numeric response variables.
 
 ## Bagging
 A technique where other models, often trees, are used.
@@ -11,10 +11,29 @@ Also known as bootstrap aggregation.
 Close friend with bagging.
 In boosting better models have more impact in voting.
 
-## Cart
+## CART
 CART is a machine learning algorithm which stands for 
 Classification And Regression Trees.
 CART uses a greedy algorithm.
+
+# K-nearest neighbors
+One of the simplest classification methods.
+Works for regression as well.
+
+The algorithm:
+Predict the class of a unseen observations.
+By default all predictor variables should be numeric.
+
+1. Define the training data set. 
+2. For a new observation, 
+look k number of observations that are closest.
+in the training dataset.
+3. The prediction is the class that has most "votes" 
+from the neighbors.
+
+You can use `knn()` function from `class` library.
+The `knn()` doesn't create a model object like most
+of the other machine learning functions does.
 
 ## MARS
 Multivariate Adaptive Regression Splines.

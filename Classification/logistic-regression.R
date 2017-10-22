@@ -1,6 +1,6 @@
 #Create data
-x <- c(0,2,5,10,15,21,27,33,39,51,49,65,72,78,83,85,89,93,98,100)
-y <- c(rep(0,10), rep(1,10))
+x <- c(0,2,5,10,15,21,27,36,45,49,55,61,55,63,72,81,89,93,98,100)
+y <- c(rep(0,12), rep(1,8))
 df <- data.frame(x,y)
 
 #Plot values
@@ -13,8 +13,13 @@ fit <- glm(y~x, family = "binomial", data = df)
 #with same column name than original predictor variable(s)
 newdata <- data.frame(x=1:100)
 
-#Predict
+#Predict probabilites for values of x
 pred <- predict(fit, newdata, type="response")
+
+#Print predicted values
+round(pred,2)
 
 #Draw line from predicted values
 lines(pred)
+
+
