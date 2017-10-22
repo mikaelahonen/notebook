@@ -10,7 +10,15 @@ data.train <- data.iris[1:75, ]
 data.test <- data.iris[76:150, ]
 
 #Fit the model
-fit <- randomForest(Species~., data=data.train, importance=TRUE)
+#sampsize: how many observations sampled per tree
+#mtry: how many variables per tree
+#nodesize: stop splitting when nodesizes is less than this
+fit <- randomForest(Species~., 
+                    data=data.train, 
+                    importance=TRUE,
+                    sampsize=50,
+                    mtry=3,
+                    nodesize=2)
 
 #Show results
 fit

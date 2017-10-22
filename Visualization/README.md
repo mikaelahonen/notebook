@@ -31,3 +31,6 @@ Use `par()` to set or query graphical parameters.
 ## Lines
 Use `lines()` function to draw lines to a plot.
 `lines(x,y)` will draw line to each x and y pair.
+
+## Text in margins
+Use `mtext` to add text to plot margins.
