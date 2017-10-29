@@ -1,4 +1,4 @@
-library(ggplot2)
+library(ggplot2) 
 
 #Time series sequence number
 time <- 0:20

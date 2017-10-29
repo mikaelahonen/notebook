@@ -1,4 +1,4 @@
-#Fake data during 3 years monthly
+#Fake data during 3 years monthly 
 set.seed(1)
 id <- 1:36
 year <- c(rep(2015,12),rep(2016,12),rep(2017,12))

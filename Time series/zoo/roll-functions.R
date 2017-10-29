@@ -1,4 +1,4 @@
-library(zoo)
+library(zoo) 
 
 #Simple oredered data
 x <- 1:10
