@@ -31,3 +31,9 @@ Difference between functions:
 * `trunc()`
 * `round()`
 * `signif()`
+
+## Save and load
+Save variables and load them as needed.
+Might be useful when statistical model is costly to compute and fit.
+A use case would be to fit a model once in a while
+and load it every time a web server receives a request.

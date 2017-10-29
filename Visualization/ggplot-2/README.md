@@ -9,3 +9,11 @@ Some simple R plots made with `ggplot2` graphics library to get started quickly.
 
 ## ggplot-geom-polygon-map-advanced ##
 * (Examples)[http://eriqande.github.io/rep-res-web/lectures/making-maps-with-R.html]
+
+# mapping=aes()
+For `mapping` parameter use `aes()` function to set axes.
+You can set it in main `ggplot()` function or in other functions
+such as `geom_point()`.
+
+You can also set common x variable in maint function and 
+y variables individually for each sub plot.
