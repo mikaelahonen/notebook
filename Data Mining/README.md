@@ -4,6 +4,9 @@ pattern and new insights from data,
 whereas regression and classification methods are
 meant to diagnose or predict a specific variable.
 
+Data mining is pretty much a synonym for unsupervised learning
+as there are no response variables.
+
 ## Apriori
 A market basket analysis.
 Which products are bought together?
