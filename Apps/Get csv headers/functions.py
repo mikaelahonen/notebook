@@ -1,62 +1,62 @@
 import os
 import csv
+#Configuration file
+import config
 
-def main(opt):
-	#Specify variables
-	#</br> for html, \n for Linux, \r for Windows
-	nl = opt['nl']
-	delimiter = opt['delimiter']
-	quote = opt['quote']
-	#Optionally wrap file title and field name in html tags
-	title_tag = opt['title_tag']
-	title_nl = opt['title_nl']
-	field_tag = opt['field_tag']
-	field_nl = opt['field_nl']
-	trailing_nls = opt['trailing_nls']
+def main():
 
 	dir_read = input('Directory to read: ')
-	#Current folder
-	#dir_read = os.path.dirname(os.path.realpath(__file__))
-	#Some other folder instead
-	#dir_read = os.path.join("c:\\","path")
 
 	#You can also set a custom directory to write instead
-	dir_write = dir_read
-	write_path = os.path.join(dir_write, 'headers.txt')
+	if(config.write_dir is None):
+		write_dir = dir_read
+	else:
+		write_dir = config.write_dir
+	
+	write_path = os.path.join(write_dir, 'headers.txt')
 	#Open file for writing
 	file_write = open(write_path,'w')
 
 	#Loop files in directory
 	for file in os.listdir(dir_read):
 
-		#Get file name
+		#Get current file name
 		file_name = os.fsdecode(file)
+		
 		#Check that file ends with .csv
 		if file.endswith(".csv"):
+		
 			#Get full path of the file
 			read_path = os.path.join(dir_read, file_name)
+			
 			#Get full path of the file
 			with open(read_path, newline='') as csv_file:
-				csv_reader = csv.reader(csv_file, delimiter = delimiter, quotechar = quote)
+				csv_reader = csv.reader(
+					csv_file, 
+					delimiter = config.delim, 
+					quotechar = config.quote
+				)
+				
+				#Get header
 				head_row = next(csv_reader)
 				
 				#Write filename
-				title = wrapHtml(file_name, title_tag)
-				if(title_nl):
-					file_write.write(title + nl)
+				title = wrapHtml(file_name, config.title_tag)
+				if(config.title_nl):
+					file_write.write(title + config.nl)
 				else:
 					file_write.write(title)
 					
 				#Loop all heads in header row
 				for head in head_row:
-					head = wrapHtml(head, field_tag)
-					if(field_nl):
-						file_write.write(head + nl)
+					head = wrapHtml(head, config.field_tag)
+					if(config.field_nl):
+						file_write.write(head + config.nl)
 					else:
 						file_write.write(head)
 					
 				#Add space after all fields have been written
-				file_write.write(nl * trailing_nls)
+				file_write.write(config.nl * config.trailing_nls)
 				
 	file_write.close()
 	print('Ready. Headers file: ' + write_path)
