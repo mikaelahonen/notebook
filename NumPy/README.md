@@ -1,6 +1,4 @@
-# Data Science for Python
-
-## Numpy
+# Numpy
 Numpy is a python library for multidimensional arrays.
 
 Dimensions are called axes.

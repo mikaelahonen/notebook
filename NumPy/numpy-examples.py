@@ -29,3 +29,12 @@ print('Dtype ' + str(dt_1.dtype))
 dt_2 = dt_1.astype(np.int64)
 print('Dtype ' + str(dt_2.dtype))
 
+
+#REPEAT
+print("\nRepeat")
+
+rpt_1 = np.repeat(3, 4)
+print("Number three four time: " + str(rpt_1))
+
+rpt_2 = np.repeat(["A","B"],[2,3])
+print("A twice, B trice: " + str(rpt_2))
