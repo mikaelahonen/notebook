@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+
+	<style>
+		#chart div {
+			display: inline-block;
+			background: blue;
+			width: 30px;
+			margin-right: 5px;
+		}
+	</style>
+
+</head>
+<body>
+
+    <div id="chart"></div>
+
+    <script type="text/javascript">
+
+      var dict = [
+        {
+          id: 1,
+          size: 5,
+          color: "red",
+        },
+        {
+          id: 2,
+          size: 15,
+          color: "blue",
+        },
+        {
+          id: 1,
+          size: 10,
+          color: "green",
+        }
+      ]
+
+    console.log(d3.values(dict))
+
+		d3.select('#chart')
+		  .selectAll("div")
+		  .data([1, 2, 4, 8, 16, 32])
+		  .enter()
+		  .append("div")
+		  .style("height", (d)=> d*5 + "px")
+
+    </script>
+</body>
+</html>
