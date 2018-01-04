@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+</head>
+<body>
+
+  <h2>Enter: Append extra elements</h2>
+  <div id="block-1">
+    <p class="cls-1">4</p>
+    <p class="cls-1">8</p>
+  </div>
+  <input type="submit" value="Enter" onclick="onClickEnter()" />
+
+  <hr/>
+
+  <h2>Exit: Remove extra elements</h2>
+  <div id="block-2">
+    <p class="cls-2">4</p>
+    <p class="cls-2">8</p>
+    <p class="cls-2">15</p>
+    <p class="cls-2">16</p>
+    <p class="cls-2">23</p>
+    <p class="cls-2">42</p>
+    <p class="cls-2">100</p>
+  </div>
+  <input type="submit" value="Exit" onclick="onClickExit()" />
+
+  <script>
+    function onClickEnter(){
+      // Update…
+      var p = d3.select("#block-1")
+        .selectAll(".cls-1")
+        .data([4, 8, 15, 16, 23, 42])
+          .text(function(d) { return d; });
+
+      // Enter…
+      p.enter().append("p").attr("class","cls-1")
+          .text(function(d) { return d; });
+
+    }
+
+
+    function onClickExit(){
+      // Update…
+      var p = d3.select("#block-2")
+        .selectAll(".cls-2")
+        .data([4, 8, 15, 16, 23, 42])
+          .text(function(d) { return d; });
+
+      // Exit…
+      p.exit().remove();
+    }
+  </script>
+
+</body>
+</html>

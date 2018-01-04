@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+
+  </head>
+  <body>
+    <h2>Select all basic</h2>
+    <p class="cls-1">Loreem ipsum</p>
+    <p class="cls-1">Loreem ipsum</p>
+    <input type="submit" value="Red headings" onclick="onClickRed()" />
+
+    <hr/>
+
+    <h2>Select all with function</h2>
+    <p class="cls-2">Loreem ipsum</p>
+    <p class="cls-2">Loreem ipsum</p>
+    <input type="submit" value="Random color headings" onclick="onClickRnd()" />
+
+    <hr/>
+
+    <h2>Select all with data</h2>
+    <p class="cls-3">Loreem ipsum</p>
+    <p class="cls-3">Loreem ipsum</p>
+    <input type="submit" value="Set data" onclick="onClickVal()" />
+
+    <hr/>
+
+    <script type="text/javascript">
+
+      function onClickRed(){
+        d3.selectAll(".cls-1").style("color", "red");
+      }
+
+      function onClickRnd(){
+        d3.selectAll(".cls-2").style("color", function() {
+          return "hsl(" + Math.random() * 360 + ",100%,50%)";
+        });
+      }
+
+      function onClickVal(){
+        d3.selectAll(".cls-3")
+        .data([Math.random(), Math.random()])
+        .text(function(d){return d});
+      }
+
+    </script>
+
+  </body>
+</html>
