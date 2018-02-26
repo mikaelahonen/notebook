@@ -1,0 +1,3 @@
+#Ignore Rhistory files in any folder
+*.Rhistory
+*.bat
