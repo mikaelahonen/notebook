@@ -9,6 +9,19 @@ Example
 Example
 `git commit -m "Description for this commit."`
 
+## git diff
+Show changed files on stage
+`git diff --name-only --cached`
+
+## git force
+Force change on git push
+`git push --force`
+
+## git merge
+Merge two git repository to one and save the commits.
+`git remote add -f some-repo https://github.com/user/some-repo.git`
+`git merge some-repo/master`
+
 ## git push
 Example
 `git push origin master`
