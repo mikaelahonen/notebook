@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "npm": "^5.6.0",
+    "puppeteer": "^1.0.0"
+  },
+  "scripts": {
+    "img": "node scripts/img.js",
+    "pdf": "node scripts/pdf.js"
+  }
+}
