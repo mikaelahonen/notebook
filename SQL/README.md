@@ -20,7 +20,7 @@ Example csv data
 ### Insert into multiple values
 ```sql
 INSERT INTO table_name(col_1, col_2, col_3)
-VALUES 
+VALUES
 (0, false, "text"),
 (4, true, "more text")
 ```
@@ -34,3 +34,11 @@ FROM table_name
 WHERE LOWER(column_1) LIKE '%text_to_match%'
 ```
 
+## SQL server
+
+### Lag
+```sql
+select *, LAG(col_1, 1) OVER (ORDER BY col_1) as col_1_prev
+from table_name
+```
+Note: Lag can be used with partition as well.
