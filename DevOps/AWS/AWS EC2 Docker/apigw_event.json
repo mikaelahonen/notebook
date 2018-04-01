@@ -1,0 +1,52 @@
+{
+    "resource": "/v1/{proxy+}",
+    "path": "/v1/jari",
+    "httpMethod": "GET",
+    "headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "en-US,en;q=0.9",
+        "cache-control": "max-age=0",
+        "Host": "15abnao3m1.execute-api.eu-west-1.amazonaws.com",
+        "upgrade-insecure-requests": "1",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
+        "X-Amzn-Trace-Id": "Root=1-5ac0c2f4-37385f00ea58bf5c11c7cf8c",
+        "X-Forwarded-For": "212.3.192.53",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "queryStringParameters": null,
+    "pathParameters": {
+        "proxy": "jari"
+    },
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "tatct0",
+        "resourcePath": "/v1/{proxy+}",
+        "httpMethod": "GET",
+        "extendedRequestId": "EqNmMGo5DoEFQCg=",
+        "requestTime": "01/Apr/2018:11:31:00 +0000",
+        "path": "/test/v1/jari",
+        "accountId": "405530236051",
+        "protocol": "HTTP/1.1",
+        "stage": "test",
+        "requestTimeEpoch": 1522572239431,
+        "requestId": "273f76e8-35a0-11e8-99e5-d5761e446aeb",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "212.3.192.53",
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
+            "user": null
+        },
+        "apiId": "35aanaopm1"
+    },
+    "body": null,
+    "isBase64Encoded": false
+}
