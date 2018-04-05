@@ -1,3 +1,5 @@
+#Back-end
+
 ## AWS Cognito
 ### General settings
 * Create a new user pool
@@ -79,6 +81,15 @@ It might take a short while that changes will be applied.
 * Integration type: `Lambda function`
 * The same region than lambda
 * Lambda function: `api_gateway_proxy`
+
+### CORS
+* Click Actions > Enable CORS
+* Accept the default settings
+* When using `ANY` method, response header `Access-Control-Allow-Origin`
+should be set to `'*'` on server side anyway.
+[Docs: CORS with Api Gateway and lambda](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html).
+
+### Deploy
 * Deploy as `v1`
 
 ## Testing
@@ -86,3 +97,40 @@ It might take a short while that changes will be applied.
 
 
 [Setup docs on AWS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html).
+
+# Front-end
+## Install nodejs server
+Install nodejs
+
+#Install react
+Install create-react-app.
+
+Run `npx create-react-app some-name-for-app`
+
+Install additional libraries with `npm install -s some-library-name`.
+
+## React router
+[React router tutorial](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf).
+
+1. `npm install -s react-router-dom` (for websites)
+2. In `index.js` module `import { BrowserRouter, Route, Switch } from 'react-router-dom'`
+
+Sample code
+```js
+ReactDOM.render((
+  <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={App}/>
+      <Route path='/page-1' component={Page1}/>
+    </Switch>
+  </BrowserRouter>
+), document.getElementById('root'));
+```
+
+## React-bootstrap
+1. Include bootstrap `css` to `index.html` in `public` folder.
+2. import module like `import { Button } from 'react-bootstrap';`.
+
+## API calls
+
+## Organize directories
