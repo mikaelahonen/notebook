@@ -1,4 +1,4 @@
-#Back-end
+# Back-end
 
 ## AWS Cognito
 ### General settings
@@ -37,16 +37,30 @@ This doesn't offer a method to refresh the token.
 [Cognito Javascript examples](https://docs.aws.amazon.com/cognito/latest/developerguide/using-amazon-cognito-user-identity-pools-javascript-examples.html).
 
 ## EC2
-### Setup the server
-* Tranfer files to user's home dir
-* chmod 755 setup-1.sh setup-2.sh
-* ./setup-1.sh
-* Exit and start new SSH session
-* ./setup-2.sh
+
+### Launch the instance
+* Choose `Amazon Linux AMI`
+*
 
 ### The security group for EC2
 * Allow all from port 22
 * Allow VPC CIDR from port 80
+
+### Download a key
+* Download a new or an existing SSH key
+* Convert to `.ppk` in `PuTTY Key Generator`
+* Click `load` and select the `.pem` file
+* Click `Save private key`
+
+### Connect the EC2
+Connect by PuTTY.
+
+### Setup the server
+* Tranfer files to user's home dir
+* `chmod 755 setup-1.sh setup-2.sh`
+* `./setup-1.sh`
+* Exit and start new SSH session
+* `./setup-2.sh`
 
 ## Lambda
 ### Create an execution role for lambda
@@ -99,10 +113,11 @@ should be set to `'*'` on server side anyway.
 [Setup docs on AWS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html).
 
 # Front-end
+
 ## Install nodejs server
 Install nodejs
 
-#Install react
+## Install react
 Install create-react-app.
 
 Run `npx create-react-app some-name-for-app`
@@ -134,3 +149,38 @@ ReactDOM.render((
 ## API calls
 
 ## Organize directories
+
+## S3 Hosting
+Create an AWS S3 bucket.
+
+Go to Properties
+* Enable `Versioning` (for cloud front cache).
+* Enable `Static website hosting`
+* Set `index.html` as `Index document`
+
+Go to Permissions
+* Grant public read access to the bucket objects: [Docs](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteAccessPermissionsReqd.html).
+
+## Deploy react
+1. Go to the directory react app.
+2. `npm run build`.
+3. Go to `build` folder and upload the contents to the S3 bucket.
+4. Test the website by visting the S3 website url.
+
+## CloudFront Distribution
+
+CloudFront is used to enable `HTTPS` and efficient file distribution.
+
+### Instructions
+1. Create distribution
+2. Choose `Web`
+3. In `Origin domain name` choose your S3 bucket
+4. Leave `Origin Path` empty to include all files
+5. `Restrict Bucket Access`: `Yes`.
+6. `Origin Access Identity`: `Create new identity`
+7. `Grant Read Permissions on Bucket`: `Yes, Update Bucket Policy`
+8. Define `Default Root Object` explicitly to `index.html`.
+
+### Test
+* Wait for distribution to be created.
+* Paste the domain name to browser's address bar.
