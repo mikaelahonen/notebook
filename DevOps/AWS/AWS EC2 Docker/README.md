@@ -55,7 +55,7 @@ This doesn't offer a method to refresh the token.
 
 ### Deploy lambda function
 * `pip install requests -t ./lambda_deploy`
-* Copy `lambda.py` to lambda deploy directory
+* Copy `.py` files to `lambda_deploy` directory
 * Make zip from `lambda_deploy` <b>content</b>, not the top folder
 
 ### Create lambda function
