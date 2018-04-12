@@ -11,8 +11,13 @@
 * From Allowed OAuth Flows allow `Authorization code grant`
 * From Allowed OAuth Scopes allow all.
 
+### Federated identities
+
+### Javascript SDK
+AWS Amplify is recommended.
+
 ### Explicit flow
-Recommended way.
+Recommended way if explicit or implicit should be chosen.
 
 Step 1: Get auth code
 * Get the code from `/oauth2/authorize` endpoint from browser.
@@ -106,6 +111,11 @@ should be set to `'*'` on server side anyway.
 ### Deploy
 * Deploy as `v1`
 
+### Mock
+Set `Mock` as an integration type to imitate server response.
+Set any response text you want from
+`Integration response` > `200` > `Body Mapping templates`.
+
 ## Testing
 * If Flask is not working, add or remove slash at the end
 
@@ -145,6 +155,15 @@ ReactDOM.render((
 ## React-bootstrap
 1. Include bootstrap `css` to `index.html` in `public` folder.
 2. import module like `import { Button } from 'react-bootstrap';`.
+
+## AWS Amplify
+Amplify stores tokens to local storage.
+
+1. `npm install -s aws-amplify`
+2. Configure `Amplify.config()` anywhere before executing.
+3. Use for example `Auth.currentAuthenticatedUser()` method to define weather user have signed in.
+
+[AWS Amplify Auth examples](https://aws.github.io/aws-amplify/media/authentication_guide).
 
 ## API calls
 
