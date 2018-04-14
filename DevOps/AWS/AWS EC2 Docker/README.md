@@ -67,6 +67,17 @@ Connect by PuTTY.
 * Exit and start new SSH session
 * `./setup-2.sh`
 
+### Flask
+* Seems to be error prone to naming (request, db, etc...)
+
+### Authorization
+* Authentication has been already done by Cognito.
+* Flask app's responsibility is to authorize actions for recognized users.
+* Most common situations
+    * Allow reading for all users
+    * Allow all actions for the record owner
+
+
 ## Lambda
 ### Create an execution role for lambda
 * Create a role e.g. `lambda_proxy` from `IAM`
