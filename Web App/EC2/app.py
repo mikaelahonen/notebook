@@ -23,7 +23,8 @@ app = Flask(__name__)
 engine = db.engine()
 meta = db.meta(engine)
 tables = db.tables(engine, meta)
-any_method = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+item_methods = ["GET", "PUT", "PATCH", "DELETE"]
+list_methods = ["GET", "PUT", "PATCH", "DELETE", "POST"]
 
 #Use this function to connect to database
 def db():
@@ -66,45 +67,47 @@ def app_menu():
 
     return html
 
-@app.route("/v1/data/gym/excercises")
-def gym_excercises():
+@app.route("/v1/data/gym/excercises/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/excercises/<id>", methods=item_methods)
+def gym_excercises(id):
 
     #Initialize database connection
     conn = db()
 
     #Process request
-    processor  = resources.GymExcercise(conn, engine, meta, request)
+    processor  = resources.GymExcercise(conn, engine, meta, request, id)
     response = processor.process()
 
     return response
 
-@app.route("/v1/data/gym/musclegroups")
-def gym_musclegroups():
+@app.route("/v1/data/gym/musclegroups/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/musclegroups/<id>", methods=item_methods)
+def gym_musclegroups(id):
 
     #Initialize database connection
     conn = db()
 
     #Process request
-    processor  = resources.GymMuscleGroup(conn, engine, meta, request)
+    processor  = resources.GymMuscleGroup(conn, engine, meta, request, id)
     response = processor.process()
 
     return response
 
-@app.route("/v1/data/gym/routines")
-def gym_routines():
+@app.route("/v1/data/gym/routines/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/routines/<id>", methods=item_methods)
+def gym_routines(id):
 
     #Initialize database connection
     conn = db()
 
     #Process request
-    processor  = resources.GymRoutine(conn, engine, meta, request)
+    processor  = resources.GymRoutine(conn, engine, meta, request, id)
     response = processor.process()
 
     return response
 
-
-
-@app.route("/v1/data/gym/sets/<int:id>", methods=any_method)
+@app.route("/v1/data/gym/sets/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/sets/<id>", methods=item_methods)
 def gym_sets_object(id):
 
     #Initialize database connection
@@ -116,20 +119,10 @@ def gym_sets_object(id):
 
     return response
 
-@app.route("/v1/data/gym/sets", methods=any_method)
-def gym_sets_list():
 
-    #Initialize database connection
-    conn = db()
-
-    #Process request
-    processor  = resources.GymSet(conn, engine, meta, request, None)
-    response = processor.process()
-
-    return response
-
-@app.route("/v1/data/gym/workouts/<int:id>", methods=any_method)
-@app.route("/v1/data/gym/workouts", defaults={'id': None}, methods=any_method)
+@app.route("/v1/data/gym/workouts/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/workouts/<id>", methods=item_methods)
+#@app.route("/v1/data/gym/workouts/<id>", methods=list_methods)
 def gym_workouts(id):
 
     #Initialize database connection
@@ -140,6 +133,8 @@ def gym_workouts(id):
     response = processor.process()
 
     return response
+
+
 
 @app.route("/v1/mean/")
 def mean():
