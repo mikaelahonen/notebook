@@ -7,11 +7,12 @@ import json
 class RequestCore(object):
 
     #Initialize the class
-    def __init__(self, db, engine, meta, request):
+    def __init__(self, db, engine, meta, request, id=None):
         self.request = request
         self.db = db
         self.meta = meta
         self.engine = engine
+        self.id = id
         #self.table_name has to be defined in child class before calling super()
         self.table = Table(self.table_name, self.meta, autoload=True, autoload_with=self.engine)
 
@@ -52,7 +53,7 @@ class RequestCore(object):
         if hasattr(self, "template_where"):
             where = self.template_where
 
-        #First row
+        #Filter by first row
         if self.request.args.get('rows_first') is None:
             rows_first = 1
         else:
@@ -61,7 +62,7 @@ class RequestCore(object):
             params["rows_first"] = rows_first
             where.append("row_number >= %(rows_first)s")
 
-        #Last row
+        #Filter by last row
         if self.request.args.get('rows_total') == 0:
             pass
         else:
@@ -74,6 +75,15 @@ class RequestCore(object):
             rows_last = rows_first + rows_total - 1
             params["rows_last"] = rows_last
             where.append("row_number <= %(rows_last)s")
+
+        #Filter by id
+        if self.id is None:
+            print("No id")
+            pass
+        else:
+            print("id: " + str(self.id))
+            params["id"] = int(self.id)
+            where.append("id=%(id)s")
 
         #Order by
         if self.request.args.get('sort') is None:

@@ -102,27 +102,41 @@ def gym_routines():
 
     return response
 
-@app.route("/v1/data/gym/sets")
-def gym_sets():
+
+
+@app.route("/v1/data/gym/sets/<int:id>", methods=any_method)
+def gym_sets_object(id):
 
     #Initialize database connection
     conn = db()
 
     #Process request
-    processor  = resources.GymSet(conn, engine, meta, request)
+    processor  = resources.GymSet(conn, engine, meta, request, id)
     response = processor.process()
 
     return response
 
-@app.route("/v1/data/gym/workouts", methods=any_method)
-@app.route("/v1/data/gym/workouts/<id>", methods=any_method)
-def gym_workouts(id=None):
+@app.route("/v1/data/gym/sets", methods=any_method)
+def gym_sets_list():
 
     #Initialize database connection
     conn = db()
 
     #Process request
-    processor  = resources.GymWorkout(conn, engine, meta, request)
+    processor  = resources.GymSet(conn, engine, meta, request, None)
+    response = processor.process()
+
+    return response
+
+@app.route("/v1/data/gym/workouts/<int:id>", methods=any_method)
+@app.route("/v1/data/gym/workouts", defaults={'id': None}, methods=any_method)
+def gym_workouts(id):
+
+    #Initialize database connection
+    conn = db()
+
+    #Process request
+    processor  = resources.GymWorkout(conn, engine, meta, request, id)
     response = processor.process()
 
     return response
