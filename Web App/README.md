@@ -68,7 +68,7 @@ Connect by PuTTY.
 * `./setup-2.sh`
 
 ### Flask
-* Seems to be error prone to naming (request, db, etc...)
+
 
 ### Authorization
 * Authentication has been already done by Cognito.
@@ -76,6 +76,11 @@ Connect by PuTTY.
 * Most common situations
     * Allow reading for all users
     * Allow all actions for the record owner
+    * Allow all actions for the record owner, a group can view
+* Table level permissions can be handled in a generic way.
+* For row level permissions an additional authorization table is needed
+(this can be made generic too).
+* The final authorization decision is always made at route function.    
 
 
 ## Lambda

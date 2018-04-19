@@ -1,15 +1,16 @@
-import config
+import router
+import json
 
 def api_router(event, context):
 
-    #Get a resource to route
-    route = config.route_resource(event)
+    #Log the event
+    print(json.dumps(event))
 
     #Generate url from host and port according to the route table
-    url = config.route_url(event, route)
+    url = router.get_route_url(event)
 
     #Make a request and get the response
-    response = config.do_request(event, url)
+    response = router.do_request(event, url)
 
     #Return
     return response
