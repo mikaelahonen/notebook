@@ -18,6 +18,8 @@ import resources
 
 #The Flask app is located at this file
 app = Flask(__name__)
+app.url_map.strict_slashes = False
+app.debug = True
 
 #Persistent variables, won't be deleted between requests
 engine = db.engine()
@@ -67,7 +69,7 @@ def app_menu():
 
     return html
 
-@app.route("/v1/data/gym/excercises/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/excercises", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/excercises/<id>", methods=item_methods)
 def gym_excercises(id):
 
@@ -80,7 +82,7 @@ def gym_excercises(id):
 
     return response
 
-@app.route("/v1/data/gym/musclegroups/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/musclegroups", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/musclegroups/<id>", methods=item_methods)
 def gym_musclegroups(id):
 
@@ -93,7 +95,7 @@ def gym_musclegroups(id):
 
     return response
 
-@app.route("/v1/data/gym/routines/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/routines", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/routines/<id>", methods=item_methods)
 def gym_routines(id):
 
@@ -106,7 +108,7 @@ def gym_routines(id):
 
     return response
 
-@app.route("/v1/data/gym/sets/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/sets", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/sets/<id>", methods=item_methods)
 def gym_sets_object(id):
 
@@ -120,7 +122,7 @@ def gym_sets_object(id):
     return response
 
 
-@app.route("/v1/data/gym/workouts/", defaults={'id':None}, methods=list_methods)
+@app.route("/v1/data/gym/workouts", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/workouts/<id>", methods=item_methods)
 #@app.route("/v1/data/gym/workouts/<id>", methods=list_methods)
 def gym_workouts(id):
@@ -136,7 +138,7 @@ def gym_workouts(id):
 
 
 
-@app.route("/v1/mean/")
+@app.route("/v1/mean")
 def mean():
 
 	n_str = request.args.get('numbers')

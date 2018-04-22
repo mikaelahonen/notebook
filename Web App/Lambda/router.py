@@ -18,7 +18,7 @@ def get_route_url(event):
     path = event["requestContext"]["path"]
 
     #Create url for the request
-    url = "http://{}:{}{}".format(host, port, path)
+    url = "{}:{}{}".format(host, port, path)
 
     print("Url: " + url)
 
@@ -26,20 +26,27 @@ def get_route_url(event):
 
 def do_request(event, url):
 
-    #Request variables
+    #Http method
     method = event["httpMethod"]
-    data = {
-        "body": event["body"],
-        "event": event
-    }
-    params = event["queryStringParameters"]
-    data = event["body"]
+
+    #Query parameters
+    if event["queryStringParameters"]:
+        params = event["queryStringParameters"]
+    else:
+        params = {}
+
+    #Body
+    if event["body"]:
+        data = event["body"]
+    else:
+        data = ""
 
     #Headers
     headers = event["headers"]
     headers["X-Cognito-User"] = event["requestContext"]["identity"]["user"]
 
     #Get response object
+    print("Start request")
     response_obj = requests.request(
         method=method,
         headers=headers,
@@ -47,6 +54,7 @@ def do_request(event, url):
         data=data,
         params=params
     )
+    print("End request")
 
     # Reponse in HTTP format
     response = {
