@@ -78,9 +78,9 @@ def gym_excercises(id):
 
     #Process request
     processor  = resources.GymExcercise(conn, engine, meta, request, id)
-    response = processor.process()
+    df_base = processor.base()
 
-    return response
+    return json_response(df_base)
 
 @app.route("/v1/data/gym/musclegroups", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/musclegroups/<id>", methods=item_methods)
@@ -91,9 +91,9 @@ def gym_musclegroups(id):
 
     #Process request
     processor  = resources.GymMuscleGroup(conn, engine, meta, request, id)
-    response = processor.process()
+    df_base = processor.base()
 
-    return response
+    return json_response(df_base)
 
 @app.route("/v1/data/gym/routines", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/routines/<id>", methods=item_methods)
@@ -104,9 +104,9 @@ def gym_routines(id):
 
     #Process request
     processor  = resources.GymRoutine(conn, engine, meta, request, id)
-    response = processor.process()
+    df_base = processor.base()
 
-    return response
+    return json_response(df_base)
 
 @app.route("/v1/data/gym/sets", defaults={'id':None}, methods=list_methods)
 @app.route("/v1/data/gym/sets/<id>", methods=item_methods)
@@ -117,9 +117,9 @@ def gym_sets_object(id):
 
     #Process request
     processor  = resources.GymSet(conn, engine, meta, request, id)
-    response = processor.process()
+    df_base = processor.base()
 
-    return response
+    return json_response(df_base)
 
 
 @app.route("/v1/data/gym/workouts", defaults={'id':None}, methods=list_methods)
@@ -132,9 +132,10 @@ def gym_workouts(id):
 
     #Process request
     processor  = resources.GymWorkout(conn, engine, meta, request, id)
-    response = processor.process()
+    df_base = processor.base()
+    df_calc = processor.calculate(df_base)
 
-    return response
+    return json_response(df_calc)
 
 
 

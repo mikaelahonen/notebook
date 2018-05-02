@@ -16,10 +16,9 @@ class RequestCore(object):
         #self.table_name has to be defined in child class before calling super()
         self.table = Table(self.table_name, self.meta, autoload=True, autoload_with=self.engine)
 
-    def query_template(self, select_list, order_list, where_list):
+    def query_template(self, base_query, order_list, where_list):
 
         order = ", ".join(order_list)
-        select = ", ".join(select_list)
         where = " AND ".join(where_list)
 
         query = '''
@@ -27,29 +26,28 @@ class RequestCore(object):
             FROM(
                 SELECT *, ROW_NUMBER() OVER(ORDER BY {}) AS row_number
                 FROM(
-                    SELECT {}
-                    FROM {}
+                    {}
                 ) AS tbl_calc
             ) AS tbl_rank
             WHERE {}
-        '''.format(order, select, self.table_name, where)
+        '''.format(order, base_query, where)
 
         return query
 
     def http_get(self):
 
-        select = ["*"]
-        order = ["id"]
-        where = ["1=1"]
         params = {}
 
         #Override template values from child, if exists
-        if hasattr(self, "template_select"):
-            select = self.template_select
+        base_query = "select * from {}".format(self.table_name)
+        if hasattr(self, "base_query"):
+            base_query = self.base_query
 
+        order = ["id"]
         if hasattr(self, "template_order"):
             order = self.template_order
 
+        where = ["1=1"]
         if hasattr(self, "template_where"):
             where = self.template_where
 
@@ -109,7 +107,7 @@ class RequestCore(object):
                 order.append(condition + " " + direction)
 
 
-        query = self.query_template(select, order, where)
+        query = self.query_template(base_query, order, where)
         print(params)
         print(query)
 
@@ -119,7 +117,7 @@ class RequestCore(object):
             params=params
         )
 
-        return df_response(df)
+        return df
 
     def http_post(self):
 
@@ -131,7 +129,7 @@ class RequestCore(object):
             df = pd.DataFrame(list(dict_data))
         except Exception as e:
             error_response = {"Error": str(e)}
-            return json.dumps(error_response)
+            return error_response
 
         try:
             db_insert = df.to_sql(
@@ -143,9 +141,9 @@ class RequestCore(object):
             print(db_insert)
         except Exception as e:
             error_response = {"Error": str(e)}
-            return json.dumps(error_response)
+            return error_response
 
-        return json.dumps(dict_data)
+        return dict_data
 
     def http_put(self):
         return '{"Msg":"Not implemented"}'
@@ -156,7 +154,8 @@ class RequestCore(object):
     def http_delete(self):
         return '{"Msg":"Not implemented"}'
 
-    def process(self):
+    #Recognize http method and return pandas data frame
+    def base(self):
 
         #Return data
         if self.request.method == "GET":

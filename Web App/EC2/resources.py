@@ -18,11 +18,26 @@ class GymWorkout(RequestCore):
 
         #This has to be defined before calling super()
         self.table_name = "gym_workout"
-        #self.template_select = "*"
+
+        #Base query
+        self.base_query = """
+            SELECT *
+            FROM gym_workout
+            LEFT JOIN (
+                SELECT workout_id, count(id) AS sets_total, count(CASE WHEN done THEN 1 END) AS sets_done
+                FROM gym_set
+                GROUP BY workout_id
+            ) tbl_sets
+            ON gym_workout.id=tbl_sets.workout_id
+        """.format(id)
 
         #Make arguments available for the parent class __init__ function
         #self.__class__ equals to GymWorkout
         super(self.__class__, self).__init__(*args, **kwargs)
+
+    def calculate(self, df):
+
+        return df
 
 
 class GymExcercise(RequestCore):
