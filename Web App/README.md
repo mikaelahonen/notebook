@@ -144,11 +144,10 @@ Set any response text you want from
 Install nodejs
 
 ## Install react
-Install create-react-app.
-
-Run `npx create-react-app some-name-for-app`
-
-Install additional libraries with `npm install -s some-library-name`.
+* Install create-react-app.
+* Run `npx create-react-app some-name-for-app`
+* Install additional libraries with `npm install -s some-library-name`.
+* Create `.env` file and insert `NODE_PATH=src` to use absolute paths.
 
 ## React router
 [React router tutorial](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf).
@@ -169,8 +168,17 @@ ReactDOM.render((
 ```
 
 ## React-bootstrap
-1. Include bootstrap `css` to `index.html` in `public` folder.
-2. import module like `import { Button } from 'react-bootstrap';`.
+1. `npm install -s bootstrap`
+1. `npm install -s react-bootstrap`
+2. `npm install -s react-router-bootstrap` (for LinkContainer)
+3. In `index.js` add `import 'bootstrap/dist/css/bootstrap.css';`
+4. import module like `import { Button } from 'react-bootstrap';`.
+
+
+## React FontAwesome
+1. `npm install -s fontawesome`
+2. `npm install -s react-fontawesome`
+3. In `index.js` add `import 'font-awesome/css/font-awesome.css';`
 
 ## AWS Amplify
 Amplify stores tokens to local storage.
