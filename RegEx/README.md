@@ -1,7 +1,7 @@
 # Regular Expressions
 Regular expressions that I need relatively often.
 
-Regular expressions are used to match 
+Regular expressions are used to match
 text patterns. For example:
 * Match only selected characters.
 * Match a character if it exists.
@@ -17,43 +17,90 @@ Use cases
 * Find, replace or remove in program code.
 
 ## Find all `<p>` and `</p>` tags
-### RegEx
+
+<b>RegEx</b>
 `</?p>`
-### Expalantion
+
+<b>Expalantion</b>
 * `<` Match string "<".
 * `/?` Match character "/" if it exists.
 * `p>` Match string "p>".
 
 ## Find string at the end of a line
-### RegEx
+
+<b>RegEx</b>
 `some text$`
-### Expalantion
+
+<b>Expalantion</b>
 * `some text` Match string "some text".
 * `$` Match the end of a line.
 
 ## Find string at the beginning of a line
-### RegEx
+
+<b>RegEx</b>
 `^some text`
-### Expalantion
+
+<b>Expalantion</b>
 * `^` Match the beginning of a line.
 * `some text` Match string "some text".
 
 ## Find email at and domain
-### RegEx
+
+<b>RegEx</b>
 `@.+$`
-### Explanation
+
+<b>Explanation</b>
 * `@` Match string "@".
 * `.+` Dot matches any character. Plus requires any number of characters, but at least one.
 * `$` End of line. Might be also space or a separator character depenging on your list's structure.
 
 ## Replace the first character with Capital
-### RegeEX
+
+<b>RegeEx</b>
 Find `^(.)`
+
 Replace `\u\1`
-### Explanation
-<b>Find</b>
+
+<b>Explanation</b>
+Find
 * `^` The beginning of line.
 * `(.)` Any single character. Use brackets to capture the value.
 <b>Replace</b>
 * `\u` Capitalize the next character.
 * `\1` Return the first captured value.
+
+## List to comma separated string
+
+<b>RegEx</b>
+Find `([a-z|\)])\r\n`
+
+Replace `$1, `
+
+
+<b>Explanation</b>
+Find
+* `([a-z|\)])` Find a character a-z or closing bracket. Add other characters if needed. This part is needed to avoid matching empty rows.
+* `\r\n` Line break in Windows.
+
+Replace
+* `$1` Get the matched character.
+* `, ` Replace line breaks with comma and space.
+
+## Replace markdown header with HTML tag
+<b>RegEx</b>
+
+Find `### (.+)?$`
+<br/>
+Replace `<b>$1</b>`
+
+<b>Explanation</b>
+
+Find
+* `### ` Match markdown header identifier.
+* `(.+)?` Greedy match for any character combination.
+* `$` End of line.  
+
+Replace
+* `<b>` HTML open tag.
+* `$1` Get the matched header text.
+* `</b>` HTML closing tag.
