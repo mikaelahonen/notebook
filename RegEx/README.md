@@ -86,6 +86,22 @@ Replace
 * `$1` Get the matched character.
 * `, ` Replace line breaks with comma and space.
 
+## List of numbers to comma separated string for SQL
+<b>RegEx</b>
+Find `([0-9]+)\r\n`
+
+Replace `'$1',`
+
+
+<b>Explanation</b>
+Find
+* `([0-9]+)` Find a sequence of digits.
+* `\r\n` Line break in Windows.
+
+Replace
+* `'$1'` Get the matched number sequence and enclose in single quotes.
+* `,` Replace line breaks with comma.
+
 ## Replace markdown header with HTML tag
 <b>RegEx</b>
 
