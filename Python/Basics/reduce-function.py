@@ -10,6 +10,6 @@ print(x_1)
 #Do the same with custom function
 def r(a,b):
 	return a+b
-	
+
 x_2 = functools.reduce(r, ls)
 print(x_2)
