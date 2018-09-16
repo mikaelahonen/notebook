@@ -17,6 +17,15 @@ Example csv data
 "Value 2";;"Previous value is null."
 ```
 
+### Create table
+```sql
+CREATE TABLE table_name (
+    col_1 int,
+    col_2 boolean,
+    col_3 varchar(255),
+);
+```
+
 ### Insert into multiple values
 ```sql
 INSERT INTO table_name(col_1, col_2, col_3)
