@@ -31,3 +31,15 @@ Modules are imported with `import`.
 Packages can thought as a set of modules having common namespace.
 Then you can refer to a module inside a package like `package.module`.
 
+## Virtual environment
+**Create**
+In Linux `virtualenv venv` where *venv* is the name of the virtual environment.
+
+**Activate**
+In Linux `source venv/bin/activate`
+
+**Deactivate**
+In Linux `deactivate`
+
+**Destroy**
+Remove the `venv` folder or whatever was the name of your virtual environment.
