@@ -38,3 +38,7 @@ sudo apt install -y python3-pip
 
 After this python packages can be installed by
 `pip3 install package_name`
+
+## Install docker on Ubuntu 18.04 Windows Subsystem
+
+[Tutorial](https://medium.com/@sebagomez/installing-the-docker-client-on-ubuntus-windows-subsystem-for-linux-612b392a44c4)
