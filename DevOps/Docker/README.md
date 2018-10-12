@@ -1,5 +1,8 @@
 # Docker notes
 
+## Why to use
+For example when using python it takes surprisingly lot of effort to install right versions and packages in each of the environments. With Docker you only have to do the effort of installing the Docker, while everything else is standardized.
+
 ## Install
 [Install for Windows](https://docs.docker.com/docker-for-windows/install/)
 
@@ -18,6 +21,7 @@ After enabling hyper-V and restarting the computer, it might take a while for Do
 Running containers: `docker ps`
 
 [Stop container](https://docs.docker.com/engine/reference/commandline/stop/): `docker stop serene_galileo`
+<<<<<<< HEAD
 
 ## Images
 List images `docker images`.
@@ -40,3 +44,5 @@ Run the app `docker run -p 4000:80 mycontainername`.
 Visit `http://localhost:4000/` on your browser.
 
 In Windows stop container explicitly `docker container stop <Container NAME or ID>`
+=======
+>>>>>>> 3457f025b3fa9cbe6ef976106c5538b40f509373
