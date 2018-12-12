@@ -43,3 +43,9 @@ In Linux `deactivate`
 
 **Destroy**
 Remove the `venv` folder or whatever was the name of your virtual environment.
+
+## Errors
+
+`ModuleNotFoundError: No module named 'Cython'` when running `pip3 install -r requirements.txt`.
+
+Try installing `Cython` and other error producing libraries by `pip3 install library` where _library_ is replaced by the library name.

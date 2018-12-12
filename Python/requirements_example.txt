@@ -1,0 +1,14 @@
+Cython
+pandas
+numpy
+jupyter
+sqlalchemy
+matplotlib
+#scipy
+#scikit-learn
+#statsmodels
+#sklearn-contrib-py-earth
+#tensorflow
+#keras
+#fasttext
+#speechrecognition
